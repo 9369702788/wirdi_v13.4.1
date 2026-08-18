@@ -223,6 +223,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         activeTrackColor: AppColors.primaryEmerald,
                         onChanged: (value) => appSettings.setShowTransliteration(value),
                       ),
+                      SwitchListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: const Text('Tajweed Coloring'),
+                        subtitle: const Text('Color Quranic text based on Tajweed rules'),
+                        value: appSettings.showTajweedColoring,
+                        activeTrackColor: AppColors.primaryEmerald,
+                        onChanged: (value) => appSettings.setShowTajweedColoring(value),
+                      ),
                       const Divider(height: 24),
                       ListTile(
                         contentPadding: EdgeInsets.zero,
