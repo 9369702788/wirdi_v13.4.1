@@ -8,6 +8,7 @@ import '../../core/models/quran_models.dart';
 import '../../core/services/mushaf_repository.dart';
 import '../../core/services/quran_audio_service.dart';
 import '../../core/services/quran_repository.dart';
+import '../../core/services/settings_service.dart';
 import '../../core/services/user_progress_service.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/generated/app_localizations.dart';

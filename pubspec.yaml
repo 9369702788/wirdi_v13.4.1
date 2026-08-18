@@ -34,7 +34,6 @@ dependencies:
   timezone: ^0.9.4
 
 dev_dependencies:
-  home_widget: ^0.6.0
   flutter_test:
     sdk: flutter
 
