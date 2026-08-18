@@ -47,7 +47,7 @@ class TajweedService {
 
   static bool _isArabicLetter(int codeUnit) => codeUnit >= 0x0621 && codeUnit <= 0x064A;
 
-  static Color colorFor(TajweedRule rule) {
+  static Color? colorFor(TajweedRule rule) {
     switch (rule) {
       case TajweedRule.qalqalah:
         return AppColors.tajweedQalqalah;
@@ -62,7 +62,7 @@ class TajweedService {
       case TajweedRule.iqlab:
         return AppColors.tajweedIqlab;
       case TajweedRule.none:
-        return const Color(0x00000000);
+        return null;
     }
   }
 
