@@ -10,6 +10,12 @@ class AppColors {
   static const darkBackground = Color(0xFF071A17);
   static const darkCard = Color(0xFF102925);
   static const mutedText = Color(0xFF64748B);
+  static const tajweedQalqalah = Color(0xFFD2691E);
+  static const tajweedGhunnah = Color(0xFFE91E8C);
+  static const tajweedIkhfa = Color(0xFF5C6BC0);
+  static const tajweedIdghamGhunnah = Color(0xFF2E7D32);
+  static const tajweedIdghamNoGhunnah = Color(0xFF00897B);
+  static const tajweedIqlab = Color(0xFF8E24AA);
 }
 
 class AppTheme {
