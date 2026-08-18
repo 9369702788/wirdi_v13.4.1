@@ -1,3 +1,4 @@
+import '../../core/services/tajweed_service.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -217,11 +218,20 @@ class _MushafPageViewState extends State<_MushafPageView> {
                   children: [
                     for (final ayah in entry.value)
                       TextSpan(
-                        text: '${ayah.text} ﴿${ayah.ayahNumber}﴾ ',
                         style: quranAudio.isPlayingFor(ayah.surahNumber, ayah.ayahNumber)
                             ? TextStyle(backgroundColor: AppColors.goldAccent.withValues(alpha: 0.35))
                             : null,
                         recognizer: _makeRecognizer(() => _playAyah(ayah)),
+                        children: [
+                          if (appSettings.showTajweedColoring)
+                            ...TajweedService.analyze(ayah.text).map((segment) => TextSpan(
+                                  text: segment.text,
+                                  style: TextStyle(color: TajweedService.colorFor(segment.rule)),
+                                ))
+                          else
+                            TextSpan(text: ayah.text),
+                          TextSpan(text: ' \uFD3F${ayah.ayahNumber}\uFD3E '),
+                        ],
                       ),
                   ],
                 ),
