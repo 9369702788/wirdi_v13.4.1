@@ -62,6 +62,7 @@ class AppSettings extends ChangeNotifier {
   String _prayerReminderMode = 'adhan';
   String _adhanId = 'a9';
   bool _showTransliteration = false;
+  bool _showTajweedColoring = true;
 
   static const List<String> dailyReminderKeys = [
     'friday',
@@ -93,6 +94,7 @@ class AppSettings extends ChangeNotifier {
   String get prayerReminderMode => _prayerReminderMode;
   String get adhanId => _adhanId;
   bool get showTransliteration => _showTransliteration;
+  bool get showTajweedColoring => _showTajweedColoring;
 
   DailyReminderSetting dailyReminder(String key) =>
       _dailyReminders[key] ?? const DailyReminderSetting(enabled: false, hour: 8, minute: 0);
@@ -142,6 +144,7 @@ class AppSettings extends ChangeNotifier {
     _prayerReminderMode = prefs.getString('settings_prayer_reminder_mode') ?? 'adhan';
     _adhanId = prefs.getString('settings_adhan_id') ?? 'a9';
     _showTransliteration = prefs.getBool('settings_show_transliteration') ?? false;
+    _showTajweedColoring = prefs.getBool('settings_show_tajweed_coloring') ?? true;
 
     final storedDailyReminders = prefs.getString('settings_daily_reminders_json');
     if (storedDailyReminders != null) {
@@ -268,6 +271,12 @@ class AppSettings extends ChangeNotifier {
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setDouble('settings_font_scale', scale);
+  }
+  Future<void> setShowTajweedColoring(bool value) async {
+    _showTajweedColoring = value;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('settings_show_tajweed_coloring', value);
   }
 }
 

@@ -1,3 +1,4 @@
+import '../../core/services/tajweed_service.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
